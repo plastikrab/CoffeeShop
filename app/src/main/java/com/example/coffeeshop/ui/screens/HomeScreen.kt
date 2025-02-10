@@ -112,9 +112,6 @@ fun HomeScreen(
                 }
             }
         },
-
-
-
         modifier = Modifier
             .fillMaxSize(),
         sheetPeekHeight = 550.dp,
@@ -157,10 +154,8 @@ fun HomeScreen(
                         .align(Alignment.CenterHorizontally)
                 )
             }
-
         }
     }
-
 }
 
 @Preview
