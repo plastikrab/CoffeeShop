@@ -3,7 +3,6 @@ package com.example.coffeeshop.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.coffeeshop.R
 import com.example.coffeeshop.model.api.CoffeeRepository
 import com.example.coffeeshop.model.entities.Coffee
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,7 +19,7 @@ class HomeScreenViewModel@Inject constructor(
 
     private val _typesList = MutableLiveData<List<String>>()
     val typesList: LiveData<List<String>> get() = _typesList
-
+    
 
 
     init {

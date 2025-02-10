@@ -149,5 +149,20 @@ val myTypography = MyTypography(
         color = PrimaryText
     ),
 
+    typeSelected = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        color = White
+    ),
+    typeUnselected = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        color = PrimaryText
+    )
+
 
 )

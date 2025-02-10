@@ -26,4 +26,8 @@ class MyTypography(
     val buttonActive : TextStyle = TextStyle(),
     val buttonInactive : TextStyle = TextStyle(),
 
+    val typeSelected : TextStyle = TextStyle(),
+    val typeUnselected : TextStyle = TextStyle()
+
+
 )
