@@ -162,7 +162,28 @@ val myTypography = MyTypography(
         fontSize = 16.sp,
         lineHeight = 24.sp,
         color = PrimaryText
-    )
+    ),
 
+    bodySubtitle = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        color = PrimaryText
+    ),
+    bodyText = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.Light,
+        fontSize = 14.sp,
+        lineHeight = 24.sp,
+        color = PrimaryText
+    ),
+    showMore = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        lineHeight = 24.sp,
+        color = Primary
+    ),
 
 )
