@@ -164,6 +164,13 @@ val myTypography = MyTypography(
         color = PrimaryText
     ),
 
+    bodyTitle = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 20.sp,
+        lineHeight = 24.sp,
+        color = PrimaryText
+    ),
     bodySubtitle = TextStyle(
         fontFamily = soraFamily,
         fontWeight = FontWeight.SemiBold,
@@ -176,7 +183,7 @@ val myTypography = MyTypography(
         fontWeight = FontWeight.Light,
         fontSize = 14.sp,
         lineHeight = 24.sp,
-        color = PrimaryText
+        color = SecondaryText
     ),
     showMore = TextStyle(
         fontFamily = soraFamily,
@@ -185,5 +192,40 @@ val myTypography = MyTypography(
         lineHeight = 24.sp,
         color = Primary
     ),
+    coffeeType = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp,
+        lineHeight = 24.sp,
+        color = SecondaryText
+    ),
+    bodyRating = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        color = PrimaryText
+    ),
 
+    buttonActive = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        lineHeight = 24.sp,
+        color = Primary
+    ),
+    buttonInactive = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        lineHeight = 24.sp,
+        color = PrimaryText
+    ),
+    bodyPrice = TextStyle(
+        fontFamily = soraFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 18.sp,
+        lineHeight = 24.sp,
+        color = Primary
+    ),
 )

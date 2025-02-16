@@ -23,6 +23,7 @@ class MyTypography(
     val bodyRating : TextStyle = TextStyle(),
     val bodyPrice : TextStyle = TextStyle(),
     val showMore : TextStyle = TextStyle(),
+    val coffeeType : TextStyle = TextStyle(),
 
     val buttonActive : TextStyle = TextStyle(),
     val buttonInactive : TextStyle = TextStyle(),

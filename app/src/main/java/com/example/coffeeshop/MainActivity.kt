@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.coffeeshop.ui.components.NavigationPanel
 import com.example.coffeeshop.ui.screens.HomeScreen
+import com.example.coffeeshop.ui.screens.Navigation
 import com.example.coffeeshop.ui.theme.CoffeShopTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,22 +30,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            var activeScreen by remember { mutableStateOf("Home") }
-
             CoffeShopTheme {
-                Box(
-                    Modifier.fillMaxSize()
-                ) {
-                    HomeScreen()
-                    NavigationPanel(
-                        modifier = Modifier
-                            .align(Alignment.BottomCenter),
-                        activeScreen = activeScreen,
-                        onClick = {
-                            activeScreen = it
-                        }
-                    )
-                }
+                Navigation()
             }
         }
     }

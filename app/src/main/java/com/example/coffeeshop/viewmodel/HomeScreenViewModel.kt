@@ -19,7 +19,12 @@ class HomeScreenViewModel@Inject constructor(
 
     private val _typesList = MutableLiveData<List<String>>()
     val typesList: LiveData<List<String>> get() = _typesList
-    
+
+    private val _selectedCoffee = MutableLiveData<Coffee>()
+    val selectedCoffee: LiveData<Coffee> get() = _selectedCoffee
+
+    private val _openDetails = MutableLiveData<Boolean>()
+    val openDetails: LiveData<Boolean> get() = _openDetails
 
 
     init {
@@ -35,5 +40,13 @@ class HomeScreenViewModel@Inject constructor(
                 }
             }
         }
+    }
+
+    fun setSelectedCoffee(coffee: Coffee){
+        _selectedCoffee.value = coffee
+    }
+
+    fun setOpenDetails(open: Boolean){
+        _openDetails.value = open
     }
 }

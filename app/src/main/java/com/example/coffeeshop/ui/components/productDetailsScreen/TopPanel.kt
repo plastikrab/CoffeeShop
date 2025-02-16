@@ -1,4 +1,4 @@
-package com.example.coffeeshop.ui.components.ProductInfoScreen
+package com.example.coffeeshop.ui.components.productDetailsScreen
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth

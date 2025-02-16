@@ -3,6 +3,7 @@ package com.example.coffeeshop.ui.theme
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.googlefonts.Font
 import androidx.compose.ui.text.googlefonts.GoogleFont
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import com.example.coffeeshop.R
 
 

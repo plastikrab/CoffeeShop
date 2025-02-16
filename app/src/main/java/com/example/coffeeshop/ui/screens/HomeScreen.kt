@@ -5,13 +5,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -22,6 +19,7 @@ import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -31,21 +29,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.coffeeshop.R
-import com.example.coffeeshop.ui.components.CoffeeCard
-import com.example.coffeeshop.ui.components.FilterTag
-import com.example.coffeeshop.ui.components.SearchField
+import com.example.coffeeshop.ui.components.menuScreen.CoffeeCard
+import com.example.coffeeshop.ui.components.menuScreen.FilterTag
+import com.example.coffeeshop.ui.components.menuScreen.SearchField
 import com.example.coffeeshop.ui.theme.GradientEnd
 import com.example.coffeeshop.ui.theme.GradientStart
-import com.example.coffeeshop.ui.theme.SecondaryText
-import com.example.coffeeshop.ui.theme.Typography
 import com.example.coffeeshop.ui.theme.WhiteSecondary
 import com.example.coffeeshop.ui.theme.myTypography
 import com.example.coffeeshop.viewmodel.HomeScreenViewModel
@@ -58,12 +51,20 @@ fun HomeScreen(
 
     val coffeeMenu by viewModel.coffeeMenu.observeAsState(initial = emptyList())
     val typesList by viewModel.typesList.observeAsState(initial = emptyList())
+    val selectedCoffee by viewModel.selectedCoffee.observeAsState(initial = null)
 
     var selectedType by remember { mutableStateOf("All Coffee") }
+    var bottomSheetVisible by remember { mutableStateOf(false) }
+
+    val bottomSheetState = rememberModalBottomSheetState()
 
     BottomSheetScaffold(
         sheetDragHandle = {},
         sheetShape = BottomSheetDefaults.HiddenShape,
+        modifier = Modifier
+            .fillMaxSize(),
+        sheetPeekHeight = 550.dp,
+        sheetContainerColor = WhiteSecondary,
         sheetContent = {
             Spacer(
                 Modifier.height(20.dp)
@@ -97,25 +98,28 @@ fun HomeScreen(
                         CoffeeCard(
                             it,
                             modifier = Modifier
-                                .padding(vertical = 12.dp)
-
+                                .padding(vertical = 12.dp),
+                            onInfoClick = {coffee->
+                                viewModel.setSelectedCoffee(coffee)
+                                viewModel.setOpenDetails(true)
+                            }
                         )
                     }else{
                         if (it.type == selectedType){
                             CoffeeCard(
                                 it,
                                 modifier = Modifier
-                                    .padding(vertical = 12.dp)
+                                    .padding(vertical = 12.dp),
+                                onInfoClick = {coffee->
+                                    viewModel.setSelectedCoffee(coffee)
+                                    viewModel.setOpenDetails(true)
+                                }
                             )
                         }
                     }
                 }
             }
-        },
-        modifier = Modifier
-            .fillMaxSize(),
-        sheetPeekHeight = 550.dp,
-        sheetContainerColor = WhiteSecondary,
+        }
 
     ) {
         Box(

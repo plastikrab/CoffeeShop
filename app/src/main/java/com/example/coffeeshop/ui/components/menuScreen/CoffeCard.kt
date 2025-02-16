@@ -1,6 +1,7 @@
-package com.example.coffeeshop.ui.components
+package com.example.coffeeshop.ui.components.menuScreen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,27 +22,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.coffeeshop.R
 import com.example.coffeeshop.model.entities.Coffee
-import com.example.coffeeshop.ui.theme.Typography
 import com.example.coffeeshop.ui.theme.White
 import com.example.coffeeshop.ui.theme.Yellow
 import com.example.coffeeshop.ui.theme.myTypography
-import com.example.coffeeshop.ui.theme.soraFamily
 
 @Composable
 fun CoffeeCard(
     coffee: Coffee,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onAddToCart: (Coffee) -> Unit = {},
+    onInfoClick: (Coffee) -> Unit = {}
 ) {
     Card(
         modifier = modifier
-            .size(width = 156.dp, height = 238.dp),
+            .size(width = 156.dp, height = 238.dp)
+            .clickable {
+                onInfoClick(coffee)
+            },
         colors = CardDefaults.cardColors(
             containerColor = White
         )
@@ -143,7 +144,7 @@ private fun prev() {
             name = "Caffe Mocha",
             description = "Description",
             price = 4.53,
-            image = com.example.coffeeshop.R.drawable.property_1_coffee__property_2_1,
+            image = R.drawable.property_1_coffee__property_2_1,
             type = "Deep Foam",
             rating = 4.8
         )
